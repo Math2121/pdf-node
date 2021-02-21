@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <title>Gerando PDF</title>
+
+    <style>
+        table {
+            width: 100%;
+        }
+        th {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="m-8">           
+        <h1 class="text-3xl mb-8">Listagem de passageiros</h1>
+        <hr>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Número do voo</th>
+                    <th>Horário</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% if (passengers.length > 0) { %>
+                <% passengers.forEach(passenge => { %>
+                    <tr>
+                        <td><%= passenge.name %></td>
+                        <td><%= passenge.flightNumber %></td>
+                        <td><%= passenge.time %></td>
+                    </tr>
+                <%  }); %>
+            <% } %>
+            </tbody>
+            
+            <tfoot>
+                <hr>
+                <tr><td colspan="2"><%=passengers.length%> passageiros</td></tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>
